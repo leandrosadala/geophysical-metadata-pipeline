@@ -1,0 +1,108 @@
+[[metadata]]
+name = "Velocity model building"
+description = "Construção/atualização de modelo de velocidade (tomografia, FWI/TLFWI etc.)"
+section_hints = ["velocity model", "model building", "tomography", "FWI", "TLFWI", "full-waveform inversion", "anisotropy re-trend", "well calibration"]
+patterns = [
+  '(?i)\\bTL\\s*FWI\\b',
+  '(?i)\\bFWI\\b',
+  '(?i)\\btomograph(y|ic)\\b',
+  '(?i)\\bvelocity\\s+model\\b'
+]
+accept_score = 0.80
+
+[[metadata]]
+name = "Preconditioning"
+description = "Fluxo de precondicionamento (ex.: Q-comp, denoise, trim statics)"
+section_hints = ["preconditioning", "conditioning", "Q-compensation", "denoise", "trim statics", "Q phase correction", "spectral shaping"]
+patterns = [
+  '(?i)\\bpreconditioning\\b',
+  '(?i)\\bQ\\s*[- ]?compensation\\b',
+  '(?i)\\bdenois(e|ing)\\b',
+  '(?i)\\btrim\\s+statics\\b'
+]
+accept_score = 0.80
+
+[[metadata]]
+name = "Q-compensation"
+description = "Compensação Q (amplitude/phase), inverse-Q etc."
+section_hints = ["Q-compensation", "Q amplitude compensation", "inverse Q", "Q ="]
+patterns = [
+  '(?i)\\bQ\\s*=\\s*\\d+\\b',
+  '(?i)\\breference\\s+frequency\\b',
+  '(?i)\\b\\d+\\s*dB\\b'
+]
+accept_score = 0.85
+
+[[metadata]]
+name = "Denoising"
+description = "Atenuação de ruído (ex.: low-rank, F-x domain, random noise attenuation)"
+section_hints = ["denoise", "denoising", "noise attenuation", "low-rank", "F-x", "F x", "incoherent noise"]
+patterns = [
+  '(?i)\\blow\\s*-?rank\\b',
+  '(?i)\\bF\\s*[- ]?x\\b',
+  '(?i)\\brandom\\s+noise\\b',
+  '(?i)\\bincoherent\\s+noise\\b'
+]
+accept_score = 0.85
+
+[[metadata]]
+name = "Trim statics"
+description = "Alinhamento/ajustes temporais entre stacks/offsets/azimutes"
+section_hints = ["trim statics", "statics", "alignment", "time shifts", "Taylor expansion", "cross-correlation"]
+patterns = [
+  '(?i)\\btrim\\s+statics\\b',
+  '(?i)\\bTaylor\\s+expansion\\b',
+  '(?i)\\bcross-?correlation\\b'
+]
+accept_score = 0.85
+
+[[metadata]]
+name = "Migration / Imaging"
+description = "Migração e geração de imagem (RTM, Kirchhoff, LSRTM etc.)"
+section_hints = ["migration", "imaging", "RTM", "Kirchhoff", "LSRTM", "least-squares", "stack", "gathers"]
+patterns = [
+  '(?i)\\bRTM\\b',
+  '(?i)\\bKirchhoff\\b',
+  '(?i)\\bLSRTM\\b',
+  '(?i)\\bleast\\s*-?squares\\b',
+  '(?i)\\bmigration\\b'
+]
+accept_score = 0.80
+
+[[metadata]]
+name = "Inversion"
+description = "Inversão sísmica (Ip/Is, elástica etc.)"
+section_hints = ["inversion", "elastic", "Ip", "Is", "wavelet", "low-frequency model"]
+patterns = [
+  '(?i)\\binversion\\b',
+  '(?i)\\bIp\\b',
+  '(?i)\\bIs\\b',
+  '(?i)\\bwavelet\\b'
+]
+accept_score = 0.80
+
+[[metadata]]
+name = "AVA / AVAz QC"
+description = "QCs de amplitude vs ângulo e vs azimute (AVA/AVAz)"
+section_hints = ["AVA", "AVAz", "Shuey", "Ruger", "Tsvankin", "anisotropic gradient", "isotropic gradient"]
+patterns = [
+  '(?i)\\bAVA\\b',
+  '(?i)\\bAVAz\\b',
+  '(?i)\\bShuey\\b',
+  '(?i)\\bRuger\\b',
+  '(?i)\\bTsvankin\\b',
+  '(?i)\\banisotropic\\s+gradient\\b'
+]
+accept_score = 0.80
+
+[[metadata]]
+name = "Well QC / Well ties"
+description = "Amarração poço-sísmica, mistie, calibração, well QC"
+section_hints = ["well QC", "well tie", "mistie", "well calibration", "sonic log"]
+patterns = [
+  '(?i)\\bmistie\\b',
+  '(?i)\\bwell\\s+tie\\b',
+  '(?i)\\bwell\\b.*\\bQC\\b',
+  '(?i)\\bsonic\\s+log\\b'
+]
+accept_score = 0.80
