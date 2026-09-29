@@ -1,0 +1,6 @@
+[pipeline]
+toc_scan_pages = 8
+max_topic_candidates = 3
+max_pages_per_metadata = 5
+temperature = 0.0
+max_workers = 4
