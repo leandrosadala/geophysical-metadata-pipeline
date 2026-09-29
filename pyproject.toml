@@ -1,0 +1,20 @@
+[project]
+name = "geophysical-metadata-pipeline"
+version = "0.1.0"
+requires-python = ">=3.12,<3.15"
+description = "Pipeline to extract geophysical technical report metadata from PDFs using TOC-guided extraction (LLM-centric)."
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+gmp = "geophysical_metadata_pipeline.cli:main"
+
