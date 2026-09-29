@@ -1,0 +1,10 @@
+[openai]
+api_version = "2024-10-21"
+azure_openai_base_url = "[url-base]/ia/openai/v1/openai-azure/openai"
+deployment = "gpt-4o"
+ca_bundle_path = "[certificado].pem"
+timeout_seconds = 60
+temperature = 0.0
+max_retries = 5
+retry_base_seconds = 0.8
+retry_max_seconds = 8.0
