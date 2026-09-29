@@ -1,0 +1,64 @@
+[catalog]
+version = "0.1.0"
+language = "en"
+domain = "geophysics"
+
+[[metadata]]
+name = "Source Depth"
+description = "Depth of the seismic source"
+section_hints = ["key parameters", "source details", "seismic energy source"]
+patterns = ['(?i)\bsource\s*depth\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(m|ft)\b']
+units_expected = ["m", "ft"]
+strategy = "hybrid"
+priority = 10
+accept_score = 0.85
+
+[[metadata]]
+name = "Shot Interval"
+description = "Shot interval (distance/time depending on report convention)"
+section_hints = ["source details", "system timing", "acquisition system"]
+patterns = ['(?i)\bshot\s*interval\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(m|ms|s)\b(?:\s*([A-Za-z\- ]+))?']
+units_expected = ["m", "ms", "s"]
+strategy = "hybrid"
+priority = 10
+accept_score = 0.85
+
+[[metadata]]
+name = "Record Length"
+description = "Record length"
+section_hints = ["system details", "recording system"]
+patterns = ['(?i)\brecord\s*length\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(ms|s)\b']
+units_expected = ["ms", "s"]
+strategy = "hybrid"
+priority = 9
+accept_score = 0.85
+
+[[metadata]]
+name = "Sample Rate"
+description = "Sampling interval or sample rate (report-dependent wording)"
+section_hints = ["system details", "recording system"]
+patterns = ['(?i)\bsample\s*rate\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(ms|s)\b']
+units_expected = ["ms", "s"]
+strategy = "hybrid"
+priority = 9
+accept_score = 0.85
+
+[[metadata]]
+name = "Group Interval"
+description = "Receiver group interval"
+section_hints = ["streamers", "acquisition system", "system details"]
+patterns = ['(?i)\bgroup\s*interval\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(m|ft)\b']
+units_expected = ["m", "ft"]
+strategy = "hybrid"
+priority = 8
+accept_score = 0.85
+
+[[metadata]]
+name = "Streamer Length"
+description = "Streamer length"
+section_hints = ["streamers", "key parameters", "acquisition system"]
+patterns = ['(?i)\bstreamer\s*length\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)\s*(m|ft)\b']
+units_expected = ["m", "ft"]
+strategy = "hybrid"
+priority = 8
+accept_score = 0.85
